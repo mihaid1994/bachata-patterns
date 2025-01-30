@@ -10,8 +10,9 @@ body {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
-  background-color: #f5f5f7;
-  color: #333;
+  /* Серый градиент для фона */
+  background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%);
+  color: #ccc; /* Общий серый цвет текста */
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -24,27 +25,28 @@ body {
 
 h1 {
   text-align: center;
-  color: #1d1d1f;
+  color: #ccc; /* Более светлый серый для заголовка */
   margin-bottom: 30px;
   font-size: 1.5rem;
 }
 
+/* Зона загрузки файла */
 #dropZone {
-  border: 2px dashed #007aff;
+  border: 2px dashed #888; /* Серый вместо синего */
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  color: #007aff;
+  color: #bbb; /* Серый для текста */
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #3a3a3a; /* Тёмно-серый фон */
   transition: background-color 0.3s, color 0.3s;
   position: relative;
   cursor: pointer;
 }
 
 #dropZone.dragover {
-  background-color: #007aff;
-  color: #fff;
+  background-color: #555; /* При наведении более светлый/темный оттенок */
+  color: #eee; /* Цвет текста при наведении */
 }
 
 .upload-icon {
@@ -67,16 +69,18 @@ h1 {
   text-decoration: underline;
 }
 
+/* Волновая форма */
 #waveform {
   width: 100%;
   height: 180px;
   margin-bottom: 10px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #3a3a3a; /* Тёмно-серый фон вместо белого */
+  border: 1px solid #555; /* Серый бордер */
   border-radius: 10px;
   user-select: none; /* Отключение выделения мышью */
 }
 
+/* Отдельный ползунок для управления позицией воспроизведения */
 #customSliderContainer {
   margin: 10px 0;
   text-align: center;
@@ -88,6 +92,7 @@ h1 {
   cursor: pointer;
 }
 
+/* Контролы воспроизведения и отметки */
 #controls,
 #additionalControls {
   display: flex;
@@ -99,8 +104,8 @@ h1 {
 
 #controls button,
 #additionalControls button {
-  background-color: #007aff;
-  color: #fff;
+  background-color: #555; /* Тёмно-серый фон кнопок */
+  color: #eee; /* Светлый цвет текста */
   border: none;
   padding: 10px 15px;
   margin: 3px;
@@ -116,10 +121,11 @@ h1 {
 
 #controls button:hover,
 #additionalControls button:hover {
-  background-color: #005bb5;
+  background-color: #666; /* Ещё более светлый/тёмный серый при hover */
   transform: translateY(-2px);
 }
 
+/* Счётчик битов и настройка BPM */
 #beatControl {
   display: flex;
   flex-direction: column;
@@ -138,23 +144,23 @@ h1 {
 .beat {
   width: 50px;
   height: 50px;
-  background-color: #e5e5ea;
+  background-color: #555; /* Серый вместо #e5e5ea */
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  color: #555;
+  color: #ccc; /* Более светлый серый для текста */
   font-size: 1rem;
   pointer-events: none; /* Отключение взаимодействия мышью */
   transition: background-color 0.3s, transform 0.3s;
 }
 
 .beat.active {
-  background-color: #007aff;
-  color: #fff;
+  background-color: #666; /* Чуть темнее/светлее для активного */
+  color: #eee; /* Светлый цвет для активного */
   transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(0, 122, 255, 0.7);
+  box-shadow: 0 0 10px rgba(170, 170, 170, 0.7); /* Серый полупрозрачный */
 }
 
 #bpmControl {
@@ -167,21 +173,23 @@ h1 {
 
 #bpmControl label {
   font-size: 0.9rem;
-  color: #333;
+  color: #ccc; /* Серый текст */
 }
 
 #bpmControl input {
   width: 60px;
   padding: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #666; /* Серый бордер */
   border-radius: 5px;
   font-size: 0.9rem;
   text-align: center;
+  background-color: #2b2b2b; /* Темный фон для инпута */
+  color: #ccc; /* Текст в инпуте */
 }
 
 #setBpmBtn {
-  background-color: #34c759;
-  color: #fff;
+  background-color: #777; /* Серый фон для кнопки */
+  color: #eee; /* Светлый текст */
   border: none;
   padding: 6px 10px;
   border-radius: 5px;
@@ -191,7 +199,7 @@ h1 {
 }
 
 #setBpmBtn:hover {
-  background-color: #28a745;
+  background-color: #666; /* Hover эффект */
 }
 
 #presetBpmControl {
@@ -203,8 +211,8 @@ h1 {
 }
 
 .preset-bpm-btn {
-  background-color: #ff9500;
-  color: #fff;
+  background-color: #666; /* Универсальный серый фон */
+  color: #eee; /* Светлый текст */
   border: none;
   padding: 6px 10px;
   border-radius: 5px;
@@ -215,30 +223,32 @@ h1 {
 }
 
 .preset-bpm-btn:hover {
-  background-color: #e08900;
+  background-color: #555; /* Ещё темнее при hover */
 }
 
 #timeDisplay {
   font-size: 0.9rem;
-  color: #555;
+  color: #aaa; /* Серый текст */
 }
 
+/* Контейнер для отображения сохранённых паттернов */
 #patternsContainer {
   position: relative;
   width: 100%;
   height: 50px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #3a3a3a; /* Тёмно-серый фон */
+  border: 1px solid #555; /* Серый бордер */
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
+/* Метки паттернов */
 .pattern-label {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ff4136;
-  color: #fff;
+  background-color: #666; /* Серый фон */
+  color: #eee; /* Светлый текст */
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
@@ -252,7 +262,7 @@ h1 {
 }
 
 .pattern-label:hover {
-  background-color: #c0392b;
+  background-color: #444;
   transform: translate(-50%, -50%) scale(1.2);
 }
 
@@ -287,7 +297,7 @@ h1 {
   }
 }
 
-/* Мобильная адаптация */
+/* ---------- Мобильная адаптация ---------- */
 @media (max-width: 600px) {
   h1 {
     font-size: 1.2rem;
