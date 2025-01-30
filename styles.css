@@ -182,6 +182,7 @@ h1 {
   margin: 15px 0;
 }
 
+#setBpmBtn,
 .preset-bpm-btn {
   background: #444;
   color: var(--text);
@@ -192,6 +193,7 @@ h1 {
   transition: 0.3s;
 }
 
+#setBpmBtn:hover,
 .preset-bpm-btn:hover {
   background: #555;
 }
