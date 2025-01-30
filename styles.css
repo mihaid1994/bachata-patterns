@@ -156,11 +156,12 @@ h1 {
   transition: background-color 0.3s, transform 0.3s;
 }
 
+/* Активный бит - неоново-синий */
 .beat.active {
-  background-color: #666; /* Чуть темнее/светлее для активного */
-  color: #eee; /* Светлый цвет для активного */
+  background-color: #00a6ff;
+  color: #fff;
   transform: scale(1.2);
-  box-shadow: 0 0 10px rgba(170, 170, 170, 0.7); /* Серый полупрозрачный */
+  box-shadow: 0 0 15px rgba(0, 166, 255, 0.8);
 }
 
 #bpmControl {
