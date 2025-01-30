@@ -2,54 +2,48 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <title>Анализатор Паттернов Бачата</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Подключение Remix Icon для иконок -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Счет Бачата</title>
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Анализатор Паттернов Бачата</h1>
+      <h1>Учимся считать Бачату</h1>
 
-      <!-- Зона загрузки файла -->
       <div id="dropZone">
         <i class="ri-upload-cloud-2-line upload-icon"></i>
         <p>
-          Перетащите аудиофайл сюда или
-          <button id="selectFileBtn">Выберите файл</button>
+          Перетащите аудиофайл или
+          <button id="selectFileBtn">выберите файл</button>
         </p>
       </div>
-      <input
-        type="file"
-        id="fileInput"
-        accept="audio/*"
-        style="display: none"
-      />
+      <input type="file" id="fileInput" accept="audio/*" hidden />
 
-      <!-- Волновая форма -->
       <div id="waveform"></div>
 
-      <!-- Отдельный ползунок для управления позицией воспроизведения -->
       <div id="customSliderContainer">
         <input type="range" id="customProgress" min="0" max="100" value="0" />
       </div>
 
-      <!-- Контролы воспроизведения и отметки -->
       <div id="controls">
-        <button id="playBtn"><i class="ri-play-fill"></i> Воспроизвести</button>
-        <button id="pauseBtn"><i class="ri-pause-fill"></i> Пауза</button>
         <button id="markPatternBtn">
-          <i class="ri-map-pin-line"></i> Отметить Паттерн
+          <i class="ri-map-pin-2-fill"></i><span>Отметить</span>
+        </button>
+        <button id="playBtn">
+          <i class="ri-play-fill"></i><span>Воспроизвести</span>
         </button>
         <button id="undoPatternBtn">
-          <i class="ri-arrow-go-back-line"></i> Отменить паттерн
+          <i class="ri-arrow-go-back-line"></i><span>Отменить</span>
+        </button>
+        <button id="pauseBtn">
+          <i class="ri-pause-fill"></i><span>Пауза</span>
         </button>
       </div>
 
-      <!-- Счётчик битов и настройка BPM -->
       <div id="beatControl">
         <div id="beatCounter">
           <div class="beat" data-beat="1">1</div>
@@ -61,33 +55,30 @@
           <div class="beat" data-beat="7">7</div>
           <div class="beat" data-beat="8">8</div>
         </div>
-        <div id="bpmControl">
-          <label for="bpmInput">BPM:</label>
-          <input type="number" id="bpmInput" value="120" min="40" max="300" />
-          <button id="setBpmBtn">Установить BPM</button>
-        </div>
-        <div id="presetBpmControl">
-          <label>Стандартные BPM:</label>
-          <button class="preset-bpm-btn" data-bpm="110">110 BPM</button>
-          <button class="preset-bpm-btn" data-bpm="120">120 BPM</button>
-          <button class="preset-bpm-btn" data-bpm="130">130 BPM</button>
-        </div>
+
         <div id="timeDisplay">
-          <span id="currentTime">00:00</span> /
-          <span id="totalTime">00:00</span>
+          <span id="currentTime">00:00</span>/<span id="totalTime">00:00</span>
         </div>
       </div>
 
-      <!-- Контейнер для отображения сохранённых паттернов -->
       <div id="patternsContainer"></div>
+
+      <div id="bpmControl">
+        <label for="bpmInput">BPM:</label>
+        <input type="number" id="bpmInput" value="120" min="40" max="300" />
+        <button id="setBpmBtn">Установить</button>
+      </div>
+
+      <div id="presetBpmControl">
+        <button class="preset-bpm-btn" data-bpm="110">110 BPM</button>
+        <button class="preset-bpm-btn" data-bpm="120">120 BPM</button>
+        <button class="preset-bpm-btn" data-bpm="130">130 BPM</button>
+      </div>
     </div>
 
-    <!-- Подключение библиотек через CDN -->
     <script src="https://unpkg.com/wavesurfer.js@6.6.0/dist/wavesurfer.min.js"></script>
     <script src="https://unpkg.com/wavesurfer.js@6.6.0/dist/plugin/wavesurfer.regions.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-
-    <!-- Подключение основного скрипта приложения -->
     <script src="app.js"></script>
   </body>
 </html>

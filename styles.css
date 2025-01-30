@@ -1,340 +1,271 @@
-/* styles.css */
+:root {
+  --primary: #00a6ff;
+  --bg: #1a1a1a;
+  --bg-light: #2b2b2b;
+  --text: #ccc;
+  --text-light: #eee;
+}
 
-/* Для обеспечения адаптивности и лучшего отображения на мобильных */
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-}
-
-body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-light) 100%);
+  color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
-  /* Серый градиент для фона */
-  background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%);
-  color: #ccc; /* Общий серый цвет текста */
-  max-width: 100%;
-  overflow-x: hidden;
 }
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 15px;
 }
 
 h1 {
   text-align: center;
-  color: #ccc; /* Более светлый серый для заголовка */
-  margin-bottom: 30px;
-  font-size: 1.5rem;
+  margin: 20px 0;
+  font-size: 1.6rem;
+  color: var(--text-light);
 }
 
-/* Зона загрузки файла */
+/* Загрузка файлов */
 #dropZone {
-  border: 2px dashed #888; /* Серый вместо синего */
+  border: 2px dashed #666;
   border-radius: 12px;
-  padding: 20px;
+  padding: 25px;
   text-align: center;
-  color: #bbb; /* Серый для текста */
   margin-bottom: 20px;
-  background-color: #3a3a3a; /* Тёмно-серый фон */
-  transition: background-color 0.3s, color 0.3s;
-  position: relative;
+  background: #3a3a3a;
+  transition: 0.3s;
   cursor: pointer;
 }
 
 #dropZone.dragover {
-  background-color: #555; /* При наведении более светлый/темный оттенок */
-  color: #eee; /* Цвет текста при наведении */
+  background: #444;
+  border-color: var(--primary);
 }
 
 .upload-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  color: var(--text);
   margin-bottom: 10px;
 }
 
 #dropZone p {
-  font-size: 1rem;
-  line-height: 1.5;
   margin: 0;
+  font-size: 1rem;
 }
 
 #dropZone button {
-  background-color: transparent;
+  background: none;
   border: none;
-  color: inherit;
-  font-size: 1rem;
+  color: var(--primary);
+  font-size: inherit;
   cursor: pointer;
-  text-decoration: underline;
+  padding: 0;
 }
 
 /* Волновая форма */
 #waveform {
   width: 100%;
   height: 180px;
-  margin-bottom: 10px;
-  background-color: #3a3a3a; /* Тёмно-серый фон вместо белого */
-  border: 1px solid #555; /* Серый бордер */
+  background: #3a3a3a;
   border-radius: 10px;
-  user-select: none; /* Отключение выделения мышью */
+  margin: 15px 0;
 }
 
-/* Отдельный ползунок для управления позицией воспроизведения */
+/* Ползунок прогресса */
 #customSliderContainer {
-  margin: 10px 0;
-  text-align: center;
+  margin: 15px 0;
 }
 
 #customProgress {
-  width: 90%;
-  max-width: 600px;
-  cursor: pointer;
+  width: 100%;
+  height: 5px;
+  accent-color: var(--primary);
 }
 
-/* Контролы воспроизведения и отметки */
-#controls,
-#additionalControls {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+/* Управление */
+#controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  margin-bottom: 15px;
+  margin: 20px 0;
+  position: relative;
 }
 
-#controls button,
-#additionalControls button {
-  background-color: #555; /* Тёмно-серый фон кнопок */
-  color: #eee; /* Светлый цвет текста */
+#controls button {
+  background: #444;
+  color: var(--text-light);
   border: none;
-  padding: 10px 15px;
-  margin: 3px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s, transform 0.2s;
+  padding: 12px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  white-space: nowrap;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-#controls button:hover,
-#additionalControls button:hover {
-  background-color: #666; /* Ещё более светлый/тёмный серый при hover */
+#controls button:hover {
+  background: #555;
   transform: translateY(-2px);
 }
 
-/* Счётчик битов и настройка BPM */
-#beatControl {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+#markPatternBtn {
+  grid-column: span 2;
+  background: var(--primary) !important;
+  color: white !important;
+  height: 60px;
+  border-radius: 30px !important;
+  font-size: 1.1rem;
 }
 
+/* Счётчик битов */
 #beatCounter {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 10px;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 .beat {
-  width: 50px;
-  height: 50px;
-  background-color: #555; /* Серый вместо #e5e5ea */
+  width: 45px;
+  height: 45px;
+  background: #444;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-weight: bold;
-  color: #ccc; /* Более светлый серый для текста */
-  font-size: 1rem;
-  pointer-events: none; /* Отключение взаимодействия мышью */
-  transition: background-color 0.3s, transform 0.3s;
+  transition: 0.3s;
 }
 
-/* Активный бит - неоново-синий */
 .beat.active {
-  background-color: #00a6ff;
-  color: #fff;
+  background: var(--primary);
   transform: scale(1.2);
-  box-shadow: 0 0 15px rgba(0, 166, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 166, 255, 0.5);
 }
 
+/* BPM управление */
 #bpmControl {
   display: flex;
-  justify-content: center;
+  gap: 10px;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#bpmControl label {
-  font-size: 0.9rem;
-  color: #ccc; /* Серый текст */
-}
-
-#bpmControl input {
-  width: 60px;
-  padding: 5px;
-  border: 1px solid #666; /* Серый бордер */
-  border-radius: 5px;
-  font-size: 0.9rem;
-  text-align: center;
-  background-color: #2b2b2b; /* Темный фон для инпута */
-  color: #ccc; /* Текст в инпуте */
-}
-
-#setBpmBtn {
-  background-color: #777; /* Серый фон для кнопки */
-  color: #eee; /* Светлый текст */
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
-}
-
-#setBpmBtn:hover {
-  background-color: #666; /* Hover эффект */
+#bpmInput {
+  background: #3a3a3a;
+  border: 1px solid #555;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 80px;
 }
 
 #presetBpmControl {
   display: flex;
+  gap: 8px;
   justify-content: center;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 10px;
+  margin: 15px 0;
 }
 
 .preset-bpm-btn {
-  background-color: #666; /* Универсальный серый фон */
-  color: #eee; /* Светлый текст */
+  background: #444;
+  color: var(--text);
   border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s;
-  white-space: nowrap;
+  transition: 0.3s;
 }
 
 .preset-bpm-btn:hover {
-  background-color: #555; /* Ещё темнее при hover */
+  background: #555;
 }
 
-#timeDisplay {
-  font-size: 0.9rem;
-  color: #aaa; /* Серый текст */
-}
-
-/* Контейнер для отображения сохранённых паттернов */
+/* Паттерны */
 #patternsContainer {
-  position: relative;
-  width: 100%;
   height: 50px;
-  background-color: #3a3a3a; /* Тёмно-серый фон */
-  border: 1px solid #555; /* Серый бордер */
+  background: #3a3a3a;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  position: relative;
 }
 
-/* Метки паттернов */
 .pattern-label {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #666; /* Серый фон */
-  color: #eee; /* Светлый текст */
-  padding: 10px;
+  background: var(--primary);
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  cursor: pointer;
-  user-select: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: background-color 0.3s, transform 0.3s;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .pattern-label:hover {
-  background-color: #444;
   transform: translate(-50%, -50%) scale(1.2);
 }
 
-/* Анимации для добавления и удаления паттернов */
-.pattern-label.added {
-  animation: fadeIn 0.5s forwards;
-}
-
-.pattern-label.removed {
-  animation: fadeOut 0.5s forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-}
-
-/* ---------- Мобильная адаптация ---------- */
+/* Мобильная адаптация */
 @media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
   h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin: 15px 0;
   }
-  .upload-icon {
-    font-size: 2rem;
-  }
-  #dropZone p {
-    font-size: 0.9rem;
-  }
+
   #waveform {
-    height: 150px;
+    height: 140px;
   }
-  #controls button,
-  #additionalControls button {
-    font-size: 0.8rem;
-    padding: 8px 10px;
-    margin: 2px;
+
+  #controls {
+    grid-template-columns: 1fr;
   }
-  #beatCounter {
-    gap: 8px;
+
+  #markPatternBtn {
+    grid-column: span 1;
+    height: 50px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    padding: 0;
+    z-index: 1000;
   }
+
+  #markPatternBtn span {
+    display: none;
+  }
+
   .beat {
     width: 40px;
     height: 40px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
-  #bpmControl input {
-    width: 50px;
-  }
-  .preset-bpm-btn {
-    font-size: 0.8rem;
-    padding: 4px 8px;
-  }
-  .pattern-label {
-    font-size: 14px;
-    padding: 8px;
+
+  #bpmControl {
+    flex-direction: column;
   }
 }
