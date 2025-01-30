@@ -247,12 +247,11 @@ h1 {
 
   #markPatternBtn {
     grid-column: span 1;
-    height: 50px;
-    position: fixed;
+    height: 100px;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
+    width: 100px;
     padding: 0;
     z-index: 1000;
   }
