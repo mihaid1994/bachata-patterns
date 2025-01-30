@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Добавляем регион (паттерн)
     wavesurfer.addRegion({
       start: currentTime,
-      end: currentTime + 0.1,
+      end: currentTime + 0.3,
       color: "rgba(255, 0, 0, 0.5)",
       drag: true,
       resize: false,
